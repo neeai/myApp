@@ -1,0 +1,27 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "nodeJs practise project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodeJs",
+    "blog"
+  ],
+  "author": "liuwei",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^2.0.0-alpha.2",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "markdown": "^0.5.0",
+    "moment": "^2.17.1",
+    "mongoose": "^4.7.4",
+    "request": "^2.79.0",
+    "swig": "^1.4.2"
+  }
+}

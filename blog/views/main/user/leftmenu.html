@@ -1,0 +1,12 @@
+<div class="list-group">
+    <a href="/user/home" class="list-group-item {% if flag=='home' %}active{% endif%}">
+        会员信息
+    </a>
+    <a href="/user/pub" class="list-group-item  {% if flag=='pub' %}active{% endif%}">
+        发布博文
+    </a>
+    <a href="/user/publist" class="list-group-item {% if flag=='publist' %}active{% endif%}">
+        <span class="badge">{{num}}</span>
+        博文列表
+    </a>
+</div>

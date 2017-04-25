@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/static/css/bootstrap/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="/static/css/bootstrap/bootstrap-theme.min.css" type="text/css"/>
+    <link rel="stylesheet" href="/static/css/common.css" type="text/css"/>
+</head>
+<body>
+<div class="blog-masthead">
+    <div class="container">
+        <nav class="blog-nav">
+            <a class="blog-nav-item {% if indexActive %} active {% endif %}" href="/">首页</a>
+            <a class="blog-nav-item {% if listActive %} active {% endif %}" href="/list">文章列表</a>
+            {% if !isLogin %}
+            <a class="blog-nav-item f_right" href="/register">注册</a>
+            <a class="blog-nav-item f_right" href="/login">登录</a>
+            {% else %}
+                 <a class="blog-nav-item f_right" href="/login/out">退出登录</a>
+                <a class="blog-nav-item f_right" href="/user/home">{{isLogin}}</a>
+            {% endif %}
+        </nav>
+    </div>
+</div>
+    {% block mainbody %}{% endblock %}
+    <div class="blog-footer">
+        <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+        <p>
+            <a href="#">Back to top</a>
+        </p>
+    </div>
+
+
+<script type="text/javascript" src="/static/js/jquery.1.11.1.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+{% block jsblock %}{% endblock %}
+</body>
+</html>

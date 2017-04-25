@@ -1,0 +1,53 @@
+{% extends '../layout.html'%} {% block mainbody %}
+<div class="container margin_top50 margin_bottom50">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<p>{{artitle}} &nbsp;作者：<span>{{author}}</span> &nbsp;发布日期：<span data-date="{{result.pubdate.toString()}}" data-flag="pubdate">{{pubdate}}</span></p>
+				</div>
+				<div class="panel-body">
+					<div>
+						{% autoescape false %}{{con}}{% endautoescape %}
+					</div>
+				</div>
+				{%if !isLogin %} 您还未登录，请先
+				<a href="/login">登录</a>后再发表评论 {% else %}
+				<form id="review">
+					<textarea class="form-control" rows="3" id="review_con"></textarea>
+					<input type="hidden" id="aid" value="{{articleId}}" />
+					<button type="button" class="btn btn-default" id="submit">发布评论</button>
+				</form>
+				{% endif %}
+				{% for item in reviewResult%}
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								{{item.uid}} ,评论时间：{{item.pubdate}}
+							</h3>
+						</div>
+						<div class="panel-body">
+							{{item.con}}
+						</div>
+					</div>
+					{%endfor%}
+					<!---->
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="myModal" aria-hidden="true">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+				<h4 class="modal-title" id="mySmallModalLabel">温馨提示</h4>
+			</div>
+			<div class="modal-body"></div>
+		</div>
+	</div>
+</div>
+{% endblock %} {% block jsblock %}
+<script src="/static/js/plugin/moment2.10.6.js" type="text/javascript"></script>
+<script src="/static/js/page/articleList.js" type="text/javascript"></script>
+{% endblock %}

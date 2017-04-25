@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习</title>
+    <link rel="stylesheet" href="/static/css/bootstrap/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="/static/css/bootstrap/bootstrap-theme.min.css" type="text/css"/>
+    <link rel="stylesheet" href="/static/css/common.css" type="text/css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default" id="cal-num">
+                <div class="panel-heading">简易计算器</div>
+                <div class="panel-body">
+                    <div class="btn-toolbar">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default" data-num="7">7</button>
+                            <button type="button" class="btn btn-default" data-num="8">8</button>
+                            <button type="button" class="btn btn-default" data-num="9">9</button>
+                            <button type="button" class="btn btn-default" data-flag="plus">+</button>
+                        </div>
+                    </div>
+                    <div class="btn-toolbar">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default" data-num="4">4</button>
+                            <button type="button" class="btn btn-default" data-num="5">5</button>
+                            <button type="button" class="btn btn-default" data-num="6">6</button>
+                            <button type="button" class="btn btn-default" data-flag="minus">-</button>
+                        </div>
+                    </div>
+                    <div class="btn-toolbar">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default" data-num="1">1</button>
+                            <button type="button" class="btn btn-default" data-num="2">2</button>
+                            <button type="button" class="btn btn-default" data-num="3">3</button>
+                            <button type="button" class="btn btn-default" data-flag="multiply">×</button>
+                        </div>
+                    </div>
+                    <div class="btn-toolbar">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default" data-num="0">0</button>
+                            <button type="button" class="btn btn-default" data-float="dot">.</button>
+                            <button type="button" class="btn btn-default" data-result="equal">=</button>
+                            <button type="button" class="btn btn-default" data-flag="divide">÷</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="panel panel-default" id="cal-result">
+                <div class="panel-heading">计算结果</div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item" id="firstNum">0</li>
+                        <li class="list-group-item" id="flag">+</li>
+                        <li class="list-group-item" id="endNum">0</li>
+                    </ul>
+                </div>
+                <div class="panel-footer">= <mark id="result"></mark></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="/static/js/jquery.1.11.1.min.js"></script>
+<script>
+var cal_num = $('#cal-num'),
+        cal_result = $('#cal-result'),
+        firstNum = $('#firstNum'),
+        flag = $('#flag'),
+        endNum = $('#endNum'),
+        result = $('#result');
+var flagObj = {
+    'dot':'.',
+    'plus':'+',
+    'minus':'-',
+    'multiply':'×',
+    'divide':'÷'
+};
+var openOn = true ;
+var first_num ='';
+var end_num ='';
+var cal_btn_flag='';
+
+
+var cal_btn = cal_num.find('.btn');
+//    cal_btn.click(function(e){
+//
+//        if($(this).attr('data-num')){
+//
+//
+//            if(openOn){
+//                first_num += $(this).attr('data-num');
+//                firstNum.text(first_num);
+//            }else{
+//                end_num += $(this).attr('data-num');
+//                endNum.text(end_num);
+//            }
+//
+//
+//
+//        }else if($(this).attr('data-flag')){
+//
+//            openOn = false;
+//
+//            cal_btn_flag = $(this).attr('data-flag');
+//
+//
+//            flag.text(flagObj[cal_btn_flag]);
+//
+//        }else if($(this).attr('data-float')){
+//
+//
+//        }else if($(this).attr('data-result')) {
+////            cal_result.text('');
+////            firstNum.text('');
+//            var a = cal_btn_flag;
+//            if(a == 'plus') {
+//                showResult(Number(firstNum.text()),Number(endNum.text()),plus);
+//            }
+//            if(a == 'minus') {
+//                showResult(Number(firstNum.text()),Number(endNum.text()),minus);
+//            }
+//            if(a == 'multiply') {
+//                showResult(Number(firstNum.text()),Number(endNum.text()),multiply);
+//            }
+//            if(a == 'divide') {
+//                showResult(Number(firstNum.text()),Number(endNum.text()),divide);
+//            }
+//
+//        }
+//
+//
+//
+//
+//    });
+
+
+    function plus(a,b){
+        return a + b;
+    }
+    function minus(a,b) {
+        return a - b;
+    }
+    function multiply(a,b){
+        return a * b;
+    }
+    function divide(a,b){
+        return a / b;
+    }
+    //显示结果
+    function showResult(a,b,c){
+        result.text(c(a,b));
+    }
+
+
+
+
+
+</script>
+</body>
+</html>
